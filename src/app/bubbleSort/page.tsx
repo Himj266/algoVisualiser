@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef } from "react";
 
 //components
@@ -26,15 +27,19 @@ export default function BubbleSort() {
     if (bubbleSorterRef.current) {
       const { array, doneUpto, swappedIndices } =
         bubbleSorterRef.current.next().value;
+
       const newNumberList = array.map((value, index) => ({
         value,
-        intent: index >= doneUpto ? "sucess" : "default",
+        intent:
+          index >= doneUpto ? "sucess" : ("default" as NumberItem["intent"]),
       }));
 
       if (swappedIndices) {
         newNumberList[swappedIndices[0]].intent = "warning";
         newNumberList[swappedIndices[1]].intent = "warning";
       }
+      console.log(newNumberList);
+      setNumberList(newNumberList);
     }
   };
 

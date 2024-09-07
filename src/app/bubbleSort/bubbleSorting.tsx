@@ -23,11 +23,11 @@ export function* bubbleSorting(array: number[]): Generator<
         yield {
           array: array.slice(),
           swappedIndices: [j, j + 1],
-          doneUpto: length - 1,
+          doneUpto: length - i,
         };
       }
-      if (!swapped) break;
     }
+    if (!swapped) break;
   }
 
   return { array, doneUpto: 0 };
