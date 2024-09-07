@@ -3,6 +3,8 @@ import { useState, useRef } from "react";
 
 //components
 import { NumberArray } from "@/components/numberArray/NumberArray";
+import { Header } from "@/components/Header";
+import { Button } from "@/components/atomic/Button";
 
 //utils
 import { generateArray } from "@/utils/generateArray";
@@ -38,19 +40,27 @@ export default function BubbleSort() {
         newNumberList[swappedIndices[0]].intent = "warning";
         newNumberList[swappedIndices[1]].intent = "warning";
       }
-      console.log(newNumberList);
       setNumberList(newNumberList);
     }
   };
 
   return (
-    <div>
-      <div>Bubble Sort</div>
-      <button onClick={generateNewArray}>Generate An Array</button>
-      <button onClick={step} disabled={numberList?.[0].intent === "sucess"}>
-        Step
-      </button>
-      {numberList ? <NumberArray numberList={numberList} /> : null}
+    <div className="h-full w-full">
+      <Header title="Bubble Sort" />
+      <div
+        className="h-full w-full flex flex-col items-center justify-center gap-20"
+        style={{ height: "calc(100vh - 80px)" }}
+      >
+        <div className="h-1/2 flex justify-center items-end">
+          {numberList ? <NumberArray numberList={numberList} /> : null}
+        </div>
+        <div className="h-1/2 flex justify-center items-start gap-5">
+          <Button onClick={generateNewArray}>Generate Array</Button>
+          <Button onClick={step} disabled={numberList?.[0].intent === "sucess"}>
+            Step
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }

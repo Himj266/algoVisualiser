@@ -6,7 +6,7 @@ interface Props {
 export const NumberTile = ({ value, className }: Props): JSX.Element => {
   return (
     <div
-      className={`flex justify-center items-center w-10 h-10 border bg-cyan-400 ${
+      className={`flex justify-center items-center w-14 h-14 border bg-cyan-400 text-slate-800 rounded-sm ${
         className ?? ""
       }`}
     >

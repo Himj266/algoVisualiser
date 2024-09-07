@@ -16,7 +16,7 @@ const INTENT_VS_CLASSNAME = {
 
 export const NumberArray = ({ numberList }: Props): JSX.Element => {
   return (
-    <div>
+    <div className="flex gap-1">
       {numberList.map(({ value, intent }, index) => (
         <NumberTile
           key={index}
