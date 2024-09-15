@@ -9,8 +9,8 @@ interface Props {
 }
 
 const INTENT_VS_CLASSNAME = {
-  sucess: "bg-green-400",
-  warning: "bg-yellow-400",
+  sucess: "bg-teal-800",
+  warning: "bg-blue-400",
   default: "",
 };
 

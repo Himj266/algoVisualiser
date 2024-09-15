@@ -1,3 +1,5 @@
+import { Typography } from "../atomic/Typography";
+
 interface Props {
   value: number;
   className?: string;
@@ -6,11 +8,11 @@ interface Props {
 export const NumberTile = ({ value, className }: Props): JSX.Element => {
   return (
     <div
-      className={`flex justify-center items-center w-14 h-14 border bg-cyan-400 text-slate-800 rounded-sm ${
+      className={`flex justify-center items-center w-14 h-14 border bg-pink-500 text-slate-800 rounded-sm ${
         className ?? ""
       }`}
     >
-      {value}
+      <Typography variant="body">{value}</Typography>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 //components
 import Image from "next/image";
 import Link from "next/link";
+import { Typography } from "../atomic/Typography";
 
 interface Props {
   name: string;
@@ -22,6 +23,6 @@ export const AlgoCard = ({ name, url, imageSrc }: Props) => (
       className="object-cover rounded-t-md"
       style={{ height: "150px" }}
     />
-    {name}
+    <Typography variant="body">{name}</Typography>
   </Link>
 );

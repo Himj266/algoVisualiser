@@ -1,12 +1,14 @@
+import Link from "next/link";
 import { Typography } from "./atomic/Typography";
+import { MdHome } from "react-icons/md";
 
 export const Header = ({ title }: { title: string }) => {
   return (
-    <Typography
-      variant="h3"
-      className="flex justify-center items-center bg-slate-900 text-slate-200 w-full p-5"
-    >
-      {title}
-    </Typography>
+    <div className="text-slate-200 relative w-full p-5 flex justify-center items-center border-b-purple-700 border-b">
+      <Link href="./" className="absolute left-0 px-5">
+        <MdHome size={30} />
+      </Link>
+      <Typography variant="h3">{title}</Typography>
+    </div>
   );
 };

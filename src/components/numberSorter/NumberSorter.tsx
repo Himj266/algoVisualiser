@@ -59,7 +59,7 @@ export const NumberSorter = ({
       <Header title={algoName} />
       <div
         className="h-full w-full flex flex-col items-center justify-center gap-20"
-        style={{ height: "calc(100vh - 80px)" }}
+        style={{ height: "calc(100vh - 81px)" }}
       >
         <div className="h-1/2 flex justify-center items-end">
           {numberList ? <NumberArray numberList={numberList} /> : null}
