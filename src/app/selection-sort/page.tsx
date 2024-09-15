@@ -4,14 +4,10 @@
 import { NumberSorter } from "@/components/numberSorter/NumberSorter";
 
 //utils
-import { bubbleSorting } from "./bubbleSorting";
+import { selectionSorting } from "./selectionSorting";
 
 export default function BubbleSort() {
   return (
-    <NumberSorter
-      sortingAlgo={bubbleSorting}
-      algoName="Bubble Sort"
-      sortedAtEndFirst
-    />
+    <NumberSorter sortingAlgo={selectionSorting} algoName="Selection Sort" />
   );
 }

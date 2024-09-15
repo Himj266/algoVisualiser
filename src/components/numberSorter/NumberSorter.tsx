@@ -16,9 +16,14 @@ import { NumberItem } from "@/components/numberArray/types";
 interface Props {
   sortingAlgo: SortingAlgo;
   algoName: string;
+  sortedAtEndFirst?: boolean;
 }
 
-export const NumberSorter = ({ sortingAlgo, algoName }: Props) => {
+export const NumberSorter = ({
+  sortingAlgo,
+  algoName,
+  sortedAtEndFirst,
+}: Props) => {
   const [numberList, setNumberList] = useState<undefined | NumberItem[]>();
   const sortingAlgoRef = useRef<undefined | ReturnType<SortingAlgo>>();
 
@@ -34,8 +39,13 @@ export const NumberSorter = ({ sortingAlgo, algoName }: Props) => {
         sortingAlgoRef.current.next().value;
       const newNumberList = array.map((value, index) => ({
         value,
-        intent:
-          index >= doneUpto ? "sucess" : ("default" as NumberItem["intent"]),
+        intent: sortedAtEndFirst
+          ? index >= doneUpto
+            ? "sucess"
+            : ("default" as NumberItem["intent"])
+          : index <= doneUpto
+          ? "sucess"
+          : "default",
       }));
       if (swappedIndices) {
         newNumberList[swappedIndices[0]].intent = "warning";
@@ -56,7 +66,14 @@ export const NumberSorter = ({ sortingAlgo, algoName }: Props) => {
         </div>
         <div className="h-1/2 flex justify-center items-start gap-5">
           <Button onClick={generateNewArray}>Generate Array</Button>
-          <Button onClick={step} disabled={numberList?.[0].intent === "sucess"}>
+          <Button
+            onClick={step}
+            disabled={
+              sortedAtEndFirst
+                ? numberList?.[0].intent === "sucess"
+                : numberList?.[numberList.length - 1].intent === "sucess"
+            }
+          >
             Step
           </Button>
         </div>

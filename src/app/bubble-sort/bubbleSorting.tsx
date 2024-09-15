@@ -1,16 +1,6 @@
-export function* bubbleSorting(array: number[]): Generator<
-  {
-    array: number[];
-    swappedIndices: number[];
-    doneUpto: number;
-  },
-  {
-    array: number[];
-    swappedIndices?: number[];
-    doneUpto: number;
-  },
-  unknown
-> {
+import { SortingAlgo } from "@/components/numberSorter/types";
+
+export function* bubbleSorting(array: number[]): ReturnType<SortingAlgo> {
   const length = array.length;
 
   for (let i = 0; i < length; i++) {
