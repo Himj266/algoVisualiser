@@ -6,6 +6,12 @@ export function* bubbleSorting(array: number[]): ReturnType<SortingAlgo> {
   for (let i = 0; i < length; i++) {
     let swapped = false;
     for (let j = 0; j < length - i - 1; j++) {
+      yield {
+        array: array.slice(),
+        doneUpto: length - i,
+        currentlyComparing: [j, j + 1],
+      };
+
       if (array[j] > array[j + 1]) {
         swapped = true;
         [array[j], array[j + 1]] = [array[j + 1], array[j]];

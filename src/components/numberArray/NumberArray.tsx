@@ -9,8 +9,9 @@ interface Props {
 }
 
 const INTENT_VS_CLASSNAME = {
-  sucess: "bg-teal-800",
-  warning: "bg-blue-400",
+  sucess: "!bg-teal-800 !shadow-teal-600",
+  warning: "!bg-blue-400 !shadow-blue-300",
+  active: "opacity-50",
   default: "",
 };
 

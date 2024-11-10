@@ -1,10 +1,11 @@
 //types
-import type { ReactNode } from "react";
+import type { ReactNode, CSSProperties } from "react";
 
 interface Props {
   children: ReactNode;
   variant: "h3" | "heroText" | "body";
   className?: string;
+  style?: CSSProperties;
 }
 
 const VARIANT_VS_CLASSNAME = {
@@ -13,12 +14,13 @@ const VARIANT_VS_CLASSNAME = {
   body: "",
 };
 
-export const Typography = ({ children, variant, className }: Props) => {
+export const Typography = ({ children, variant, className, style }: Props) => {
   return (
     <div
       className={`${VARIANT_VS_CLASSNAME[variant]} ${
         className ?? ""
       } text-slate-50`}
+      style={style}
     >
       {children}
     </div>

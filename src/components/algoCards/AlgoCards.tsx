@@ -17,7 +17,7 @@ const ALGORITHMS = [
 ];
 
 export const AlgoCards = () => (
-  <div className="flex gap-12 p-10">
+  <div className="h-full flex gap-12 p-10 justify-center items-center">
     {ALGORITHMS.map(({ name, id, url, imageSrc }) => (
       <AlgoCard key={id} name={name} url={url} imageSrc={imageSrc} />
     ))}

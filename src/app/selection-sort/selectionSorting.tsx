@@ -6,6 +6,11 @@ export function* selectionSorting(array: number[]): ReturnType<SortingAlgo> {
   for (let i = 0; i < length - 1; i++) {
     let minIndex = i;
     for (let j = i + 1; j < length; j++) {
+      yield {
+        array: array.slice(),
+        currentlyComparing: [minIndex, j],
+        doneUpto: i - 1,
+      };
       if (array[j] < array[minIndex]) {
         minIndex = j;
       }

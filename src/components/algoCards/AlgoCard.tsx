@@ -12,7 +12,7 @@ interface Props {
 export const AlgoCard = ({ name, url, imageSrc }: Props) => (
   <Link
     href={url}
-    className="border border-emerald-700 flex flex-col rounded-md"
+    className="border border-emerald-700 flex flex-col rounded-md shadow-md shadow-emerald-300"
   >
     <Image
       src={imageSrc}
